@@ -4,8 +4,6 @@ var router = express.Router();
 const fetch = require('node-fetch');
 const City = require('../models/cities');
 
-const OWM_API_KEY = 'e8b374e95356e4765160a4dd4b552066';
-
 router.post('/', (req, res) => {
 	// Check if the city has not already been added
 	City.findOne({ cityName: { $regex: new RegExp(req.body.cityName, 'i') } }).then(dbData => {
